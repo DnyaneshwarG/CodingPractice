@@ -1,0 +1,4 @@
+this is file handling demo in c++
+c++ is the best
+input file
+hello world!

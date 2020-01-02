@@ -4,30 +4,6 @@
 
 using namespace std;
 
-class Singleton {
-  private:
-    int data;
-    Singleton() {
-      data = 100;
-    }
-    static Singleton *instance;
-
-  public:
-    static Singleton* getInstance() {
-        if (!instance) {
-          instance = new Singleton();
-        }
-        return instance;
-    }
-    int getData() {
-      return data;
-    }
-    void setData(int d) {
-      data = d;
-    }
-};
-Singleton* Singleton::instance = 0;
-
 template <class T>
 void hello(T t) 
 {
@@ -48,11 +24,7 @@ class Array {
 };
 
 int main()
-{
-    Singleton *obj = Singleton::getInstance();
-    obj->setData(11111);
-    cout << "data= " << obj->getData();
-    
+{ 
     Array<int> a0;
     a0.setData(500);
     a0.printData();
