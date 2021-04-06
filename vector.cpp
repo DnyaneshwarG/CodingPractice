@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 { 
+		// comment
     deque<int> dq(5);
     
     cout << "Deque Example:" << endl;
