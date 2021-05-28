@@ -1,60 +1,36 @@
+// C++ program to illustrate the
+// iterators in vector
 #include <iostream>
 #include <vector>
-#include <deque>
-#include <list>
-#include<algorithm>
 
 using namespace std;
 
 int main()
-{ 
-		// comment
-    deque<int> dq(5);
-    
-    cout << "Deque Example:" << endl;
-    for (int i = 0; i < 5; i++) {
-        dq[i] = i + 1;
-    }
-    dq.push_back(10);
-    dq.push_front(100);
-    for (int i = 0; i < dq.size(); i++) {
-        cout << dq[i] << " ";
-    }
-    
-    if (!dq.empty())
-      cout << "\nDeque is not empty, size = " << dq.size();
+{
+	vector<int> g1;
 
-    cout << "\n\nVector Example:" << endl;
-    vector<int> vc(5);
+	for (int i = 1; i <= 5; i++)
+		g1.push_back(i);
 
-    vc.resize(7);
-    for (int i = 0; i < vc.size(); i++) {
-        vc[i] = i + 1;
-    }
-    vc.push_back(6);
-    auto it = vc.begin()+2;
-    vc.insert(it, 2, 333);
-    vc.insert(vc.begin()+5, 555);
-    for (auto it = vc.begin(); it != vc.end(); it++) {
-        cout << *it << " ";
-    }
-    if (!vc.empty())
-      cout << "Vector is not empty, size = " << vc.size();
+  vector<int> g2;
+  g2 = g1;
+	cout << "Output of begin and end: ";
+	for (auto i = g1.begin(); i != g1.end(); ++i)
+		cout << *i << " ";
 
-    cout << "\n\nLists Example:" << endl;
-    list<int> lst;
+	cout << "\nOutput of cbegin and cend: ";
+	for (auto i = g2.cbegin(); i != g2.cend(); ++i)
+		cout << *i << " ";
 
-    for (int i = 0; i < 5; i++) {
-        lst.push_back(i+1);
-    }
+	cout << "\nOutput of rbegin and rend: ";
+	for (auto ir = g1.rbegin(); ir != g1.rend(); ++ir)
+		cout << *ir << " ";
 
-    for (auto it = lst.begin(); it != lst.end(); it++) {
-       cout << *it << " "; 
-    }
-    list<int>::iterator lst_it = find(lst.begin(), lst.end(), 4);
-    cout << "\nFound item: " << *lst_it;
+	cout << "\nOutput of crbegin and crend : ";
+  for (int &i : g2) {
+    cout << i << " ";
+  }
 
-    cout << endl << endl;
-    return 0;
+	return 0;
 }
 
